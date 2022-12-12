@@ -32,6 +32,14 @@ pipeline {
 				sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
 			}
 		}
+	    
+	    stage('Build image') {
+            steps{
+            script{
+            dockerImage = docker.build("hamzakrid/voyage:latest")
+            }
+            }
+        }
         
         
        
