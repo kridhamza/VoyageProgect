@@ -1,44 +1,40 @@
 pipeline {
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
     agent any
-     environment {
-    		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-    		}
-
-    stages {
-        stage('Checkout GIT') {
-            steps {
-                echo 'Pulling... ';
-                    git branch: 'master',
-                        url : 'https://github.com/kridhamza/VoyageProject',
-                        credentialsId: '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';
-            }
-        }
-        stage('Cleaning the project') {     
-            steps {
-                echo 'cleaning project ...'
-                sh 'mvn clean'
-            }
-        }
-        
-        stage('Compiling the artifact') {             
-            steps {
-                echo "compiling"
-                sh 'mvn compile'
-            }
-        }
-        stage ('Docker login'){
-        	steps {
-        	sh 'echo "dckr_pat_1bkP1gIiLMZ9sOyoZoVV4ROUrMI" | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-        	}
-        }
     
+    stages {
+        stage('Cloning from GitHub') {
+                steps {
+                    echo "Getting Project from Git";
+                    
+                    git branch: 'voyagehamza', credentialsId: '14d06552-df58-407d-bd31-71164c94aae9', url: 'https://github.com/kridhamza/VoyageProject.git'
+                }
+                
+            }
+        stage('Clean'){
+            steps {
+                   sh 'mvn clean'
+                }
+        }
+        stage('Compile'){
+            steps {
+                sh 'mvn compile -DskipTests'  
+            }
+        }
         
-     
-      }
-      
-      post {
-      	always {
-      		sh 'docker logout'
-      	}
-      }
+       
+        
+        stage('Dockerhub Login') {
+
+			steps {
+				sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+			}
+		}
+        
+        
+       
+        
+    }
 }
