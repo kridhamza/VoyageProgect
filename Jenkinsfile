@@ -11,7 +11,7 @@ pipeline {
                 echo 'Pulling... ';
                     git branch: 'khaled',
                         url : 'https://github.com/kridhamza/VoyageProject',
-                        credentialsId: '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';
+                        credentialsId: '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';
             }
         }
 
