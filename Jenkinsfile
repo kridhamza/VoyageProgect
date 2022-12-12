@@ -28,7 +28,7 @@ pipeline {
         }
         stage ('Docker login'){
         	steps {
-        	sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        	sh 'echo "dckr_pat_1bkP1gIiLMZ9sOyoZoVV4ROUrMI" | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
         	}
         }
     
