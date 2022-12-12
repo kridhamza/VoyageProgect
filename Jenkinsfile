@@ -1,5 +1,5 @@
-peline {
- agent any
+pipeline {
+    agent any
     
     environment {
     		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
@@ -9,14 +9,20 @@ peline {
         stage('Checkout GIT') {
             steps {
                 echo 'Pulling... ';
-                    git branch: 'master',
+                    git branch: 'khaled',
                         url : 'https://github.com/kridhamza/VoyageProject',
                         credentialsId: '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';
             }
         }
 
-       
-        }
-}
+    
         
-
+     
+      }
+      
+      post {
+      	always {
+      		sh 'docker logout'
+      	}
+      }
+}
