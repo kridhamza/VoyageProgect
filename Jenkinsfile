@@ -23,7 +23,7 @@ pipeline {
                 sh 'mvn compile -DskipTests'  
             }
         }
-        stage ("Nexuspackage"){
+       /* stage ("Nexuspackage"){
 			steps{
 			sh "mvn package -DskipTests"          
             } 
@@ -31,6 +31,11 @@ pipeline {
         stage('NEXUS') {
             steps {
                 sh 'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+            }
+        }*/
+	    stage('SONAR') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
        
