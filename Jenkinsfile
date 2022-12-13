@@ -33,12 +33,11 @@ pipeline {
 			}
 		}
 	    
-	    stage('Build image') {
-            steps{
-            script{
-            dockerImage = docker.build("hamzakrid/voyage:latest")
+	    stage ('Docker build') {
+             steps {
+            sh 'docker build -t khaledkhm/voyage:latest .'
             }
-            }
+        }
         }
         
         
