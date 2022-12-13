@@ -23,7 +23,17 @@ pipeline {
                 sh 'mvn compile -DskipTests'  
             }
         }
-        
+        stage ("Nexuspackage"){
+			steps{
+			sh "mvn package -DskipTests"          
+            } 
+        }
+         stage ("Nexusdeploy"){
+	steps{
+	sh "mvn deploy -DskipTests"
+
+	}
+	}
        
         
         stage('Dockerhub Login') {
