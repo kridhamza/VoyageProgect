@@ -32,12 +32,12 @@ pipeline {
             steps {
                 sh 'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
             }
-        }*/
+        }
 	    stage('SONAR') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
-        }
+        }*/
        
         
         stage('Dockerhub Login') {
