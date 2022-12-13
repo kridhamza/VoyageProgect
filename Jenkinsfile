@@ -38,7 +38,7 @@ pipeline {
             sh 'docker build -t khaledkhm/voyage:latest .'
             }
         }
-        }
+        
         
         
        
