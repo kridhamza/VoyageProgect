@@ -35,7 +35,7 @@ pipeline {
 	    
 	    stage ('Docker build') {
              steps {
-            sh 'docker build -t khaledkhm/voyage:latest .'
+            sh 'docker build -t hamzakrid/voyage:latest .'
             }
         }
         
