@@ -28,12 +28,11 @@ pipeline {
 			sh "mvn package -DskipTests"          
             } 
         }
-         stage ("Nexusdeploy"){
-	steps{
-	sh "mvn deploy -DskipTests"
-
-	}
-	}
+        stage('NEXUS') {
+            steps {
+                sh 'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+            }
+        }
        
         
         stage('Dockerhub Login') {
