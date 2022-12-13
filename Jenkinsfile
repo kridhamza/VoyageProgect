@@ -50,7 +50,7 @@ pipeline {
 	    stage ('Docker build') {
              steps {
 		     script{
-            sh 'docker build -t hamzakrid/voyage:latest .'
+            sh 'docker build -t hamzakrid/examthourayas2:latest .'
 		     }
             }
         }
