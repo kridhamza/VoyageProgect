@@ -9,7 +9,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 <version>2.5.3</version>
 <relativePath /> <!-- lookup parent from repository  -->
 </parent>
-<groupId>tn.esprit.rh</groupId>
+<groupId>tn.esprit</groupId>
 <artifactId>ExamThourayaS2</artifactId>
 <version>1.0</version>
 <name>ExamThourayaS2</name>
