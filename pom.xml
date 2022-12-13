@@ -10,7 +10,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 <relativePath /> <!-- lookup parent from repository  -->
 </parent>
 <groupId>tn.esprit.rh</groupId>
-<artifactId>achat</artifactId>
+<artifactId>voyage</artifactId>
 <version>1.0</version>
 <name>achat</name>
 <description>Projet pour le module DevOps</description>
