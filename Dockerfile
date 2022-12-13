@@ -1,6 +1,3 @@
-FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-
-COPY ${JAR_FILE} voyage.jar
-ENTRYPOINT ["java", "-jar" ,"/voyage.jar"]
-EXPOSE 8089
+FROM adoptopenjdk/openjdk11
+COPY target/ExamThourayaS2-0.0.1-SNAPSHOT.jar ExamThourayaS2-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/achat-1.0.jar"]
